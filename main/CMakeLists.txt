@@ -1,4 +1,3 @@
-
 if (NOT FREERTOS_KERNEL_PATH AND NOT DEFINED ENV{FREERTOS_KERNEL_PATH})
     message("Skipping FreeRTOS examples as FREERTOS_KERNEL_PATH not defined")
     return()
@@ -19,7 +18,11 @@ target_include_directories(pico_emb PRIVATE
 target_link_libraries(pico_emb PRIVATE
     pico_async_context_freertos
     FreeRTOS-Kernel-Heap4
+    hardware_i2c
+    Fusion
     pico_stdlib
+    hardware_uart
+    hardware_pwm
     )
 # Set the nunber of cores to 1.
 # This defaults to 2 in FreeRTOSConfig_examples_common.h if not defined in here
